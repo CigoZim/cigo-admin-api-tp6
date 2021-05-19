@@ -10,13 +10,8 @@ Route::get('/', '/Index/index');
  */
 Route::get("/test", "/test/token");
 
-Route::post(":version/phoneLogin", ":version.user/loginByPhone"); //登录
+Route::group('client/:version/', function () {
+    Route::post("/phoneLogin", ":version.user/loginByPhone"); //登录
+})->prefix('client/');
 
 /**********************************************************************************************************************/
-
-//默认路由
-Route::rule(
-    "/:version",
-    ":version.Index/index",
-    'GET|POST'
-);

@@ -56,7 +56,7 @@ return [
         'linkTimeout'              => intval(env('qiniu-cloud.link-timeout', 3600)),
         'returnBody'               => '{"key":"$(key)","hash":"$(etag)","fname":"$(fname)","fprefix":"$(fprefix)","mimeType":"$(mimeType)","fsize":"$(fsize)","bucket":"$(bucket)"}',
         'enableCallbackServer'     => true,
-        'callbackUrl'              => env('qiniu-cloud.callback-url', (empty($_SERVER['host']) ? '' : $_SERVER['host']) . '/v1/qiniu/notify'),
+        'callbackUrl'              => env('qiniu-cloud.callback-url', (empty($_SERVER['host']) ? '' : $_SERVER['host']) . '/admin/v1/qiniu/notify'),
         'callbackBodyType'         => 'application/json',
         'callbackBody'             => '{"key":"$(key)","hash":"$(etag)","fname":"$(fname)","fprefix":"$(fprefix)","mimeType":"$(mimeType)","fsize":"$(fsize)","bucket":"$(bucket)"}',
     ],
@@ -87,7 +87,7 @@ return [
         'linkTimeout'              => env('tencent-cloud.link-timeout', '+24 hours'),
         'prefix'                   => env('tencent-cloud.prefix', '*'),
         'cdnScheme'                => env('tencent-cloud.cdn-scheme', 'https://'),
-        'callbackUrl'              => env('tencent-cloud.callback-url', (empty($_SERVER['host']) ? '' : $_SERVER['host']) . '/v1/tencent/notify'),
+        'callbackUrl'              => env('tencent-cloud.callback-url', (empty($_SERVER['host']) ? '' : $_SERVER['host']) . '/admin/v1/tencent/notify'),
         'callbackBodyType'         => 'application/json',
     ],
 
