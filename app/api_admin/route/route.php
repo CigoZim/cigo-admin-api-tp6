@@ -13,13 +13,13 @@ Route::group('admin/:version/', function () {
         Route::post("Manager", ":version.manager/addManager"); //添加管理员
         Route::post("Rule", ":version.auth/addRule"); //添加权限节点
         Route::post("Group", ":version.auth/addGroup"); //添加权限分组
-    })->prefix(':version.')->middleware(DemoShow::class);
+    })->prefix('add/')->middleware(DemoShow::class);
     Route::group('edit/', function () {
         Route::post("User", ":version.user/editUser"); //修改用户
         Route::post("Manager", ":version.manager/editManager"); //修改管理员
         Route::post("Rule", ":version.auth/editRule"); //修改权限节点
         Route::post("Group", ":version.auth/editGroup"); //修改权限分组
-    })->prefix(':version.')->middleware(DemoShow::class);
+    })->prefix('edit/')->middleware(DemoShow::class);
     Route::group('status/', function () {
         Route::post("User", ":version.user/statusUser"); //设置用户状态
         Route::post("Manager", ":version.manager/statusManager"); //设置管理员状态
