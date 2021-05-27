@@ -39,6 +39,14 @@ class Auth extends CommonV1
     }
 
     /**
+     * 获取权限节点列表
+     */
+    public function getRuleList()
+    {
+        return $this->getAuthRuleList();
+    }
+
+    /**
      * 添加权限分组
      */
     public function addGroup()

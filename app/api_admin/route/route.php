@@ -12,7 +12,7 @@ Route::group('admin/:version/', function () {
     /**********************************************************************************************************************/
     Route::group('/', function () {
         /*************************************数据改动类路由，进行分组便于做统一限制*************************************************/
-        Route::group('/', function () {
+        Route::group('add/', function () {
             Route::post("User", ":version.user/addUser"); //添加用户
             Route::post("Manager", ":version.manager/addManager"); //添加管理员
             Route::post("Rule", ":version.auth/addRule"); //添加权限节点
@@ -33,8 +33,9 @@ Route::group('admin/:version/', function () {
         /********************************* 获取数据列表 *************************************************************************/
         Route::post("/userList", ":version.user/getUserList"); //获取用户列表
         Route::post("/managerList", ":version.manager/getManagerList"); //获取管理员列表
+        Route::post("/ruleList", ":version.auth/getRuleList"); //获取权限节点列表
         Route::post("/groupList", ":version.auth/getGroupList"); //获取权限分组列表
-        Route::get("/menu/tree", ":version.menu/index"); //获取树形菜单列表
+        Route::post("/menu/tree", ":version.menu/index"); //获取树形菜单列表
         Route::get("/menu/base", ":version.menu/base"); //获取基础菜单列表
         Route::get("/menu/both", ":version.menu/both"); //获取树形和基础菜单列表
 
