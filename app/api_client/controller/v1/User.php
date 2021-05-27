@@ -1,5 +1,6 @@
 <?php
-declare (strict_types=1);
+
+declare(strict_types=1);
 
 namespace app\api_client\controller\v1;
 
@@ -13,5 +14,11 @@ class User extends CommonV1
     public function loginByPhone()
     {
         return $this->phoneLogin(true);
+    }
+
+
+    public function logout()
+    {
+        return $this->doLogout();
     }
 }

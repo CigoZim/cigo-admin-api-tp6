@@ -1,5 +1,6 @@
 <?php
-declare (strict_types=1);
+
+declare(strict_types=1);
 
 namespace app\api_admin\controller\v1;
 
@@ -17,6 +18,15 @@ class Manager extends CommonV1
     {
         try {
             return $this->doLogin();
+        } catch (Exception $e) {
+            return $this->makeApiReturn('服务器内部错误', [], ApiErrorCode::ServerError_OTHER_ERROR, ApiHttpReponseCode::ServerError_InternalServer_Error);
+        }
+    }
+
+    public function logout()
+    {
+        try {
+            return $this->doLogout();
         } catch (Exception $e) {
             return $this->makeApiReturn('服务器内部错误', [], ApiErrorCode::ServerError_OTHER_ERROR, ApiHttpReponseCode::ServerError_InternalServer_Error);
         }
