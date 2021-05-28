@@ -1,5 +1,6 @@
 <?php
-declare (strict_types=1);
+
+declare(strict_types=1);
 
 namespace app\api_admin\controller\v1;
 
@@ -17,11 +18,7 @@ class Menu extends CommonV1
      */
     public function index()
     {
-        try {
-            return $this->menuTree();
-        } catch (\Exception $e) {
-            return $this->makeApiReturn('服务器错误', ['aa' => $e->getMessage()], ApiErrorCode::ServerError_DB_ERROR, ApiHttpReponseCode::ServerError_InternalServer_Error);
-        }
+        return $this->menuTree();
     }
 
     /**
@@ -30,19 +27,11 @@ class Menu extends CommonV1
      */
     public function base()
     {
-        try {
-            return $this->menuBase();
-        } catch (\Exception $e) {
-            return $this->makeApiReturn('服务器错误', [], ApiErrorCode::ServerError_DB_ERROR, ApiHttpReponseCode::ServerError_InternalServer_Error);
-        }
+        return $this->menuBase();
     }
 
     public function both()
     {
-        try {
-            return $this->menuBoth();
-        } catch (\Exception $e) {
-            return $this->makeApiReturn('服务器错误', [], ApiErrorCode::ServerError_DB_ERROR, ApiHttpReponseCode::ServerError_InternalServer_Error);
-        }
+        return $this->menuBoth();
     }
 }
