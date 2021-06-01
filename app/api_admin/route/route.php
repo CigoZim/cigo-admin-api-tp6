@@ -39,12 +39,12 @@ Route::group('admin/:version/', function () {
         Route::get("/menu/base", ":version.menu/base"); //获取基础菜单列表
         Route::get("/menu/both", ":version.menu/both"); //获取树形和基础菜单列表
 
-    })->middleware([ApiCheckUserAuth::class]);
+    })->append(['cigo-append-moduleName' => 'admin'])->middleware([ApiCheckUserAuth::class]);
 
     /**********************************************************************************************************************/
     Route::group('/', function () {
         Route::post('logout', ":version.manager/logout");
-    })->middleware([ApiCheckIfUserLogin::class]);
+    })->append(['cigo-append-moduleName' => 'admin'])->middleware([ApiCheckIfUserLogin::class]);
 
     Route::post('login', ":version.manager/login");
 

@@ -16,20 +16,12 @@ class Manager extends CommonV1
 
     public function login()
     {
-        try {
-            return $this->doLogin();
-        } catch (Exception $e) {
-            return $this->makeApiReturn('服务器内部错误', [], ApiErrorCode::ServerError_OTHER_ERROR, ApiHttpReponseCode::ServerError_InternalServer_Error);
-        }
+        return $this->doLogin();
     }
 
     public function logout()
     {
-        try {
-            return $this->doLogout();
-        } catch (Exception $e) {
-            return $this->makeApiReturn('服务器内部错误', [], ApiErrorCode::ServerError_OTHER_ERROR, ApiHttpReponseCode::ServerError_InternalServer_Error);
-        }
+        return $this->doLogout();
     }
 
     public function addManager()
