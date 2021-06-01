@@ -15,7 +15,7 @@ Route::group('client/:version/', function () {
 
     Route::group('/', function () {
         Route::post('logout', ":version.user/logout");
-    })->append(['cigo-append-moduleName' => 'client'])->middleware([ApiCheckIfUserLogin::class]);
+    })->append(['cigo_append_moduleName' => 'client'])->middleware([ApiCheckIfUserLogin::class]);
 
     Route::post("/phoneLogin", ":version.user/loginByPhone"); //登录
 })->prefix('client/');
