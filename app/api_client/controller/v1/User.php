@@ -11,6 +11,11 @@ class User extends CommonV1
 {
     use UserAlias;
 
+    public function login()
+    {
+        return $this->doLogin();
+    }
+
     public function loginByPhone()
     {
         return $this->phoneLogin(true);
