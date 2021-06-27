@@ -43,4 +43,9 @@ class Manager extends CommonV1
     {
         return $this->getList();
     }
+
+    public function modifyOwnPwd()
+    {
+        return $this->modifyPwdByPwd();
+    }
 }
